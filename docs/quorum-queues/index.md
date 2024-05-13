@@ -666,16 +666,65 @@ be since more work has to be done to replicate data and achieve consensus.
 
 ## Configurable Settings {#configuration}
 
-There are a few new configuration parameters that can be tweaked using
-the [advanced](./configure#advanced-config-file) config file.
-
 Note that all settings related to [resource footprint](#resource-use) are documented
 in a separate section.
 
 The `ra` application (which is the Raft library that quorum
 queues use) has [its own set of tunable parameters](https://github.com/rabbitmq/ra#configuration).
 
-The `rabbit` application has several quorum queue related configuration items available.
+The `rabbit` application has several quorum queue related configuration items available in the 
+[rabbit.conf file](https://www.rabbitmq.com/docs/configure#config-file)
+
+<table>
+  <thead>
+    <tr>
+      <td><code>rabbit.conf</code> Configuration Key</td>
+      <td>Description</td>
+      <td>Default value</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>quorum_queue.compute_checksums</td>
+      <td></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.property_equivalence.relaxed_checks_on_redeclaration</td>
+      <td></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.continuous_membership_reconciliation.enabled</td>
+      <td></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.continuous_membership_reconciliation.auto_remove</td>
+      <td></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.continuous_membership_reconciliation.interval</td>
+      <td></td>
+      <td>3600000 (60 minutes)</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.continuous_membership_reconciliation.trigger_interval</td>
+      <td></td>
+      <td>10000 (10 seconds)</td>
+    </tr>
+    <tr>
+      <td>quorum_queue.continuous_membership_reconciliation.target_group_size</td>
+      <td></td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+There are a few configuration parameters that can only be tweaked using
+the [advanced](configure.html#advanced-config-file) config file.
 
 <table>
   <thead>
